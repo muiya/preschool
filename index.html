@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>學前幼兒生活島</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Fraunces:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  font-family:'Noto Sans TC','Helvetica Neue',sans-serif;
+  background:#f3ecdf;color:#2b1d12;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 20% 0%, #fff5dc 0%, transparent 40%),
+    radial-gradient(circle at 80% 100%, #ffe1ec 0%, transparent 40%),
+    #f3ecdf;
+}
+.wrap{max-width:640px;margin:0 auto;padding:40px 20px max(40px, env(safe-area-inset-bottom))}
+
+.hero{
+  text-align:center;margin-bottom:40px;
+  padding:32px 16px;
+  border:1px solid rgba(201,168,120,0.4);
+  border-radius:20px;
+  background:rgba(255,255,255,0.6);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+.hero .eyebrow{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:13px;color:#a87a3e;letter-spacing:0.18em;
+  text-transform:uppercase;margin-bottom:10px;
+}
+.hero h1{
+  font-size:32px;font-weight:700;
+  color:#2b1d12;letter-spacing:0.02em;line-height:1.2;
+  margin-bottom:8px;
+}
+.hero .lead{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:15px;color:#8a6a3d;line-height:1.5;
+}
+
+.section-label{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:13px;color:#a87a3e;letter-spacing:0.12em;
+  text-transform:uppercase;margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-label::after{
+  content:"";flex:1;height:1px;background:rgba(201,168,120,0.3);
+}
+
+.topic-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+  gap:14px;
+}
+.topic-card{
+  display:flex;flex-direction:column;
+  background:#fff;
+  border:1px solid rgba(201,168,120,0.4);
+  border-radius:16px;
+  padding:18px 18px 16px;
+  text-decoration:none;
+  color:#2b1d12;
+  transition:transform 0.15s,box-shadow 0.2s,border-color 0.2s;
+  box-shadow:0 1px 3px rgba(70,40,10,0.04);
+  position:relative;
+  min-height:108px;
+}
+.topic-card:hover{
+  transform:translateY(-2px);
+  border-color:#c08338;
+  box-shadow:0 6px 16px -4px rgba(70,40,10,0.18);
+}
+.topic-num{
+  font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+  font-size:14px;color:#c08338;
+  margin-bottom:6px;
+}
+.topic-zh{
+  font-size:16px;font-weight:700;color:#2b1d12;
+  line-height:1.3;margin-bottom:4px;
+}
+.topic-en{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:12px;color:#8a6a3d;line-height:1.3;
+  margin-bottom:auto;
+}
+.topic-meta{
+  margin-top:10px;
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:11px;color:#a87a3e;letter-spacing:0.05em;
+  display:flex;align-items:center;gap:6px;
+}
+
+.footer{
+  text-align:center;margin-top:48px;
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:11px;color:#a87a3e;letter-spacing:0.12em;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Preschool Life Island</div>
+    <h1>學前幼兒生活島</h1>
+    <p class="lead">給新時代父母的<br>0-6 歲教育指南</p>
+  </div>
+
+  <div class="section-label">所有主題 · All Topics</div>
+  <div class="topic-grid">
+    <a class="topic-card" href="traits/">
+      <div class="topic-num">主題 01</div>
+      <div class="topic-zh">孩童的生活和行為特徵</div>
+      <div class="topic-en">Children's Life & Behavioral Traits</div>
+      <div class="topic-meta">6 個情境 →</div>
+    </a>
+    <a class="topic-card" href="imagine/">
+      <div class="topic-num">主題 02</div>
+      <div class="topic-zh">給孩子的想像空間</div>
+      <div class="topic-en">Space for a Child's Imagination</div>
+      <div class="topic-meta">4 個情境 →</div>
+    </a>
+    <a class="topic-card" href="notslave/">
+      <div class="topic-num">主題 03</div>
+      <div class="topic-zh">不要成為孩子的奴隸</div>
+      <div class="topic-en">Don't Become Your Child's Servant</div>
+      <div class="topic-meta">3 個情境 →</div>
+    </a>
+    <a class="topic-card" href="discipline/">
+      <div class="topic-num">主題 04</div>
+      <div class="topic-zh">關於管教的種種</div>
+      <div class="topic-en">On Discipline</div>
+      <div class="topic-meta">4 個情境 →</div>
+    </a>
+    <a class="topic-card" href="parents/">
+      <div class="topic-num">主題 05</div>
+      <div class="topic-zh">新時代的父母</div>
+      <div class="topic-en">The Modern Parent</div>
+      <div class="topic-meta">6 個情境 →</div>
+    </a>
+    <a class="topic-card" href="singleparent/">
+      <div class="topic-num">主題 06</div>
+      <div class="topic-zh">單親問題面面觀</div>
+      <div class="topic-en">Single-Parent Family Issues</div>
+      <div class="topic-meta">3 個情境 →</div>
+    </a>
+    <a class="topic-card" href="art/">
+      <div class="topic-num">主題 07</div>
+      <div class="topic-zh">透過藝術的孩童教育</div>
+      <div class="topic-en">Education Through Art</div>
+      <div class="topic-meta">2 個情境 →</div>
+    </a>
+    <a class="topic-card" href="speech/">
+      <div class="topic-num">主題 08</div>
+      <div class="topic-zh">怎樣幫助孩子學習說話</div>
+      <div class="topic-en">Helping Your Child Learn to Speak</div>
+      <div class="topic-meta">6 個情境 →</div>
+    </a>
+    <a class="topic-card" href="activity/">
+      <div class="topic-num">主題 09</div>
+      <div class="topic-zh">孩童的活動與遊戲</div>
+      <div class="topic-en">Children's Activities & Play</div>
+      <div class="topic-meta">5 個情境 →</div>
+    </a>
+    <a class="topic-card" href="social/">
+      <div class="topic-num">主題 10</div>
+      <div class="topic-zh">如何培養孩子適應群體生活</div>
+      <div class="topic-en">Helping Children Adapt to Group Life</div>
+      <div class="topic-meta">4 個情境 →</div>
+    </a>
+    <a class="topic-card" href="earlyschool/">
+      <div class="topic-num">主題 11</div>
+      <div class="topic-zh">要不要提早入學</div>
+      <div class="topic-en">Should They Start School Early?</div>
+      <div class="topic-meta">2 個情境 →</div>
+    </a>
+    <a class="topic-card" href="sleep/">
+      <div class="topic-num">主題 12</div>
+      <div class="topic-zh">孩童睡覺學問大</div>
+      <div class="topic-en">The Art of Children's Sleep</div>
+      <div class="topic-meta">4 個情境 →</div>
+    </a>
+    <a class="topic-card" href="toilet/">
+      <div class="topic-num">主題 13</div>
+      <div class="topic-zh">怎樣訓練孩童大小便</div>
+      <div class="topic-en">Toilet Training Your Child</div>
+      <div class="topic-meta">9 個情境 →</div>
+    </a>
+    <a class="topic-card" href="focus/">
+      <div class="topic-num">主題 14</div>
+      <div class="topic-zh">孩子注意力不集中怎麼辦</div>
+      <div class="topic-en">Helping a Distracted Child</div>
+      <div class="topic-meta">5 個情境 →</div>
+    </a>
+    <a class="topic-card" href="lying/">
+      <div class="topic-num">主題 15</div>
+      <div class="topic-zh">孩子說謊怎麼辦</div>
+      <div class="topic-en">When Children Lie — Motives Behind Lying</div>
+      <div class="topic-meta">5 個情境 →</div>
+    </a>
+    <a class="topic-card" href="shy/">
+      <div class="topic-num">主題 16</div>
+      <div class="topic-zh">如何幫助孩子克服害羞</div>
+      <div class="topic-en">Helping a Shy Child</div>
+      <div class="topic-meta">3 個情境 →</div>
+    </a>
+    <a class="topic-card" href="jealousy/">
+      <div class="topic-num">主題 17</div>
+      <div class="topic-zh">跟嫉妒說再見</div>
+      <div class="topic-en">Saying Goodbye to Sibling Jealousy</div>
+      <div class="topic-meta">6 個情境 →</div>
+    </a>
+    <a class="topic-card" href="dependency/">
+      <div class="topic-num">主題 18</div>
+      <div class="topic-zh">如何改變孩子過度依賴</div>
+      <div class="topic-en">Changing a Child's Over-Dependence</div>
+      <div class="topic-meta">5 個情境 →</div>
+    </a>
+  </div>
+
+  <div class="footer">學前幼兒生活島 · 18 主題 · 82 情境</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>怎樣訓練孩童大小便 · 情境09</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Fraunces:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  height:100%;width:100%;
+  font-family:'Noto Sans TC','Helvetica Neue',sans-serif;
+  background:#0d0906;color:#fff;
+  overflow:hidden;
+  -webkit-tap-highlight-color:transparent;
+  user-select:none;-webkit-user-select:none;
+}
+body{display:flex;flex-direction:column}
+
+.hero{position:relative;flex:1 1 0;min-height:0;overflow:hidden}
+.hero img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero .scrim{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to top, rgba(13,9,6,0.88) 0%, rgba(13,9,6,0.45) 30%, transparent 55%),
+    linear-gradient(to bottom, rgba(13,9,6,0.5) 0%, transparent 18%);
+  pointer-events:none;
+}
+
+.top-badge{
+  position:absolute;top:max(14px,env(safe-area-inset-top));left:16px;
+  display:flex;align-items:center;gap:8px;z-index:2;
+}
+.top-badge .dot{width:6px;height:6px;border-radius:50%;background:#e8a54b}
+.top-badge span{
+  font-size:11px;letter-spacing:0.14em;
+  color:rgba(255,255,255,0.7);
+  font-family:'Fraunces',serif;font-style:italic;
+}
+.back-btn{
+  position:absolute;top:max(10px,env(safe-area-inset-top));right:14px;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(0,0,0,0.4);
+  display:flex;align-items:center;justify-content:center;
+  z-index:2;text-decoration:none;color:#fff;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+.back-btn svg{width:16px;height:16px}
+
+.sub-area{
+  position:absolute;left:0;right:0;bottom:12%;
+  padding:0 20px;z-index:2;pointer-events:none;text-align:center;
+}
+.sub-zh{
+  font-size:clamp(18px,5.2vw,26px);
+  font-weight:700;color:#fff;
+  text-shadow:0 2px 12px rgba(0,0,0,0.9),0 0 2px rgba(0,0,0,0.7);
+  line-height:1.45;letter-spacing:0.04em;
+  white-space:nowrap;overflow:hidden;text-overflow:clip;
+  margin-bottom:6px;min-height:1.45em;
+  transition:opacity 0.25s;
+}
+.sub-en{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:clamp(12px,3.2vw,16px);
+  color:rgba(255,234,195,0.85);
+  text-shadow:0 1px 6px rgba(0,0,0,0.9);
+  line-height:1.4;letter-spacing:0.01em;
+  white-space:nowrap;overflow:hidden;text-overflow:clip;
+  min-height:1.4em;transition:opacity 0.25s;
+}
+.sub-zh.fade,.sub-en.fade{opacity:0}
+
+.panel{
+  flex:0 0 auto;background:#0d0906;
+  padding:16px 20px max(16px, env(safe-area-inset-bottom));
+  display:flex;flex-direction:column;gap:14px;
+}
+.title-row{display:flex;align-items:baseline;gap:10px}
+.title-row h1{font-size:18px;font-weight:700;color:#fff;line-height:1.2;letter-spacing:0.02em}
+
+.progress-bar{
+  width:100%;height:3px;
+  background:rgba(255,255,255,0.1);
+  border-radius:999px;overflow:hidden;
+}
+.progress-bar>div{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,#e8a54b,#f0c27a);
+  border-radius:999px;transition:width 0.35s linear;
+}
+
+.ctrl-row{display:flex;align-items:center;justify-content:center;gap:20px}
+.btn{appearance:none;border:none;background:none;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center}
+.btn-sm{
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(255,255,255,0.08);
+  color:rgba(255,255,255,0.7);
+  transition:background 0.2s,color 0.2s;
+}
+.btn-sm:active{background:rgba(255,255,255,0.15)}
+.btn-sm.active{background:rgba(232,165,75,0.2);color:#e8a54b}
+.btn-sm svg{width:18px;height:18px}
+
+.btn-play{
+  width:62px;height:62px;border-radius:50%;
+  background:#e8a54b;color:#0d0906;
+  box-shadow:0 4px 24px -4px rgba(232,165,75,0.5);
+  transition:transform 0.15s,box-shadow 0.2s;
+}
+.btn-play:active{transform:scale(0.93)}
+.btn-play.playing{background:#f0c27a}
+.btn-play svg{width:26px;height:26px}
+
+.btn-circle{
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(255,255,255,0.08);
+  color:rgba(255,255,255,0.5);
+  transition:background 0.2s;
+}
+.btn-circle:active{background:rgba(255,255,255,0.15)}
+.btn-circle svg{width:16px;height:16px}
+
+.lang-label{font-size:11px;font-weight:500;letter-spacing:0.08em;pointer-events:none;margin-top:-2px}
+
+@media (orientation:landscape){
+  body{flex-direction:row}
+  .hero{flex:1 1 0;height:100%}
+  .hero img{object-fit:contain;object-position:center center;background:#0d0906}
+  .hero .scrim{
+    background:
+      linear-gradient(to top, rgba(13,9,6,0.85) 0%, rgba(13,9,6,0.3) 25%, transparent 50%),
+      linear-gradient(to bottom, rgba(13,9,6,0.5) 0%, transparent 15%);
+  }
+  .sub-area{bottom:14%}
+  .panel{
+    position:absolute;bottom:0;left:0;right:0;
+    background:linear-gradient(to top, rgba(13,9,6,0.95) 0%, rgba(13,9,6,0.7) 70%, transparent 100%);
+    padding:4px 16px max(6px, env(safe-area-inset-bottom));
+    gap:3px;z-index:3;
+  }
+  .title-row{gap:6px}
+  .title-row h1{font-size:11px}
+  .progress-bar{height:2px}
+  .btn-play{width:36px;height:36px}
+  .btn-play svg{width:16px;height:16px}
+  .btn-sm{width:28px;height:28px}
+  .btn-sm svg{width:12px;height:12px}
+  .btn-circle{width:28px;height:28px}
+  .btn-circle svg{width:11px;height:11px}
+  .ctrl-row{gap:10px}
+  .lang-label{font-size:9px}
+  .sub-zh{font-size:clamp(14px,3vw,20px)}
+  .sub-en{font-size:clamp(10px,1.8vw,13px)}
+}
+@media (orientation:landscape) and (max-height:380px){
+  .panel{padding:2px 12px max(4px, env(safe-area-inset-bottom));gap:2px}
+  .title-row h1{font-size:10px}
+  .btn-play{width:30px;height:30px}
+  .btn-play svg{width:14px;height:14px}
+  .btn-sm{width:24px;height:24px}
+  .btn-sm svg{width:10px;height:10px}
+  .btn-circle{width:24px;height:24px}
+  .btn-circle svg{width:10px;height:10px}
+  .ctrl-row{gap:8px}
+  .lang-label{font-size:8px}
+  .sub-area{bottom:18%}
+  .sub-zh{font-size:clamp(12px,2.5vw,17px)}
+  .sub-en{font-size:clamp(9px,1.5vw,12px)}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img src="image.png" alt="怎樣訓練孩童大小便 情境09">
+  <div class="scrim"></div>
+  <div class="top-badge"><div class="dot"></div><span>怎樣訓練孩童大小便 · Toilet Training Your Child</span></div>
+  <a href="../" class="back-btn" aria-label="返回主題頁">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  </a>
+  <div class="sub-area">
+    <div class="sub-zh" id="subZh"></div>
+    <div class="sub-en" id="subEn"></div>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="title-row"><h1>怎樣訓練孩童大小便 · 情境09 — 訓練方法6 — 適時休息</h1></div>
+  <div class="progress-bar"><div id="bar"></div></div>
+  <div class="ctrl-row">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+      <button class="btn btn-sm active" id="langZh" aria-label="中文">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7h14M12 4v3M7 7c0 5 3 9 5 11M17 7c0 5-3 9-5 11M8 14h8"/></svg>
+      </button>
+      <span class="lang-label" style="color:#e8a54b">中文</span>
+    </div>
+    <button class="btn btn-circle" id="restartBtn" aria-label="重播">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.5 9A9 9 0 0 0 5.6 5.6L1 10M3.5 15a9 9 0 0 0 14.9 3.4L23 14"/></svg>
+    </button>
+    <button class="btn btn-play" id="playBtn" aria-label="播放">
+      <svg viewBox="0 0 24 24" fill="currentColor" id="iconPlay"><path d="M8 5v14l11-7z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor" id="iconPause" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+    </button>
+    <div style="width:44px;height:44px"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+      <button class="btn btn-sm" id="langEn" aria-label="English">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5h8a4 4 0 0 1 0 8H4m0 0h9a4 4 0 0 1 0 8H4"/></svg>
+      </button>
+      <span class="lang-label" style="color:rgba(255,255,255,0.4)">EN</span>
+    </div>
+  </div>
+</div>
+
+<script>
+var LINES = [];
+var lang = 'zh';
+var playing = false;
+var currentIdx = -1;
+var audioPool = {zh: {}, en: {}};
+var sessionId = 0;
+
+var subZhEl = document.getElementById('subZh');
+var subEnEl = document.getElementById('subEn');
+var playBtn = document.getElementById('playBtn');
+var iconPlay = document.getElementById('iconPlay');
+var iconPause = document.getElementById('iconPause');
+var langZhBtn = document.getElementById('langZh');
+var langEnBtn = document.getElementById('langEn');
+var restartBtn = document.getElementById('restartBtn');
+var bar = document.getElementById('bar');
+
+fetch('lines.json')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    LINES = data;
+    renderLine(0);
+    getAudio('zh', 0);
+    getAudio('en', 0);
+  })
+  .catch(function(e) { console.error('無法載入 lines.json', e); });
+
+function pad2(n) { return (n < 10 ? '0' : '') + n; }
+
+function getAudio(l, idx) {
+  if (idx < 0 || idx >= LINES.length) return null;
+  if (audioPool[l][idx]) return audioPool[l][idx];
+  var a = new Audio('line_' + pad2(idx + 1) + '_' + l + '.mp3');
+  a.preload = 'auto';
+  audioPool[l][idx] = a;
+  return a;
+}
+
+function preloadNext(idx) {
+  getAudio('zh', idx + 1);
+  getAudio('en', idx + 1);
+}
+
+function renderLine(i) {
+  if (i === currentIdx) return;
+  currentIdx = i;
+  subZhEl.classList.add('fade');
+  subEnEl.classList.add('fade');
+  setTimeout(function() {
+    if (i < 0 || i >= LINES.length) {
+      subZhEl.textContent = '';
+      subEnEl.textContent = '';
+    } else {
+      subZhEl.textContent = LINES[i].zh;
+      subEnEl.textContent = LINES[i].en;
+    }
+    subZhEl.classList.remove('fade');
+    subEnEl.classList.remove('fade');
+  }, 120);
+  if (LINES.length > 0) {
+    bar.style.width = ((i + 1) / LINES.length * 100).toFixed(1) + '%';
+  }
+}
+
+function playLine(i) {
+  if (!playing) return;
+  if (i >= LINES.length) { stop(); return; }
+  var mySession = sessionId;
+  var audio = getAudio(lang, i);
+  if (!audio) { stop(); return; }
+  renderLine(i);
+  preloadNext(i);
+  audio.currentTime = 0;
+  audio.onended = function() {
+    if (mySession !== sessionId) return;
+    if (!playing) return;
+    playLine(i + 1);
+  };
+  audio.onerror = function() {
+    if (mySession !== sessionId) return;
+    console.warn('音檔載入失敗,跳過:', i);
+    if (playing) playLine(i + 1);
+  };
+  var p = audio.play();
+  if (p && p.catch) p.catch(function(e) { console.warn('播放失敗:', e); });
+}
+
+function play() {
+  if (LINES.length === 0) return;
+  playing = true;
+  playBtn.classList.add('playing');
+  iconPlay.style.display = 'none';
+  iconPause.style.display = 'block';
+  var startIdx = (currentIdx < 0 || currentIdx >= LINES.length) ? 0 : currentIdx;
+  playLine(startIdx);
+}
+
+function pause() {
+  playing = false;
+  sessionId++;
+  playBtn.classList.remove('playing');
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+  ['zh', 'en'].forEach(function(l) {
+    Object.keys(audioPool[l]).forEach(function(idx) {
+      var a = audioPool[l][idx];
+      if (!a.paused) a.pause();
+    });
+  });
+}
+
+function stop() {
+  pause();
+  currentIdx = -1;
+  renderLine(0);
+  bar.style.width = '0%';
+}
+
+playBtn.addEventListener('click', function() { playing ? pause() : play(); });
+restartBtn.addEventListener('click', function() { stop(); play(); });
+
+function setLang(l) {
+  if (l === lang) return;
+  var wasPlaying = playing;
+  var keepIdx = currentIdx >= 0 ? currentIdx : 0;
+  if (wasPlaying) pause();
+  lang = l;
+  langZhBtn.classList.toggle('active', l === 'zh');
+  langEnBtn.classList.toggle('active', l === 'en');
+  langZhBtn.parentElement.querySelector('.lang-label').style.color = l === 'zh' ? '#e8a54b' : 'rgba(255,255,255,0.4)';
+  langEnBtn.parentElement.querySelector('.lang-label').style.color = l === 'en' ? '#e8a54b' : 'rgba(255,255,255,0.4)';
+  currentIdx = keepIdx;
+  if (wasPlaying) {
+    playing = true;
+    playBtn.classList.add('playing');
+    iconPlay.style.display = 'none';
+    iconPause.style.display = 'block';
+    playLine(keepIdx);
+  }
+}
+langZhBtn.addEventListener('click', function() { setLang('zh'); });
+langEnBtn.addEventListener('click', function() { setLang('en'); });
+</script>
+</body>
+</html>
